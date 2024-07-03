@@ -6,11 +6,20 @@
 /*   By: aalshafy <aalshafy@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:02:23 by aalshafy          #+#    #+#             */
-/*   Updated: 2024/07/03 14:58:19 by aalshafy         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:20:02 by aalshafy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosopher.h"
+
+int	dead_status_check(t_philosophers *philo)
+{
+	pthread_mutex_lock(philo->dead_status);
+	if (*philo->dead)
+		return (pthread_mutex_unlock(philo->dead_status), 1);
+	pthread_mutex_unlock(philo->dead_status);
+	return (0);
+}
 
 void	*check_status(void *arg)
 {

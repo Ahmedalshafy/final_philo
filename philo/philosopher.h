@@ -6,7 +6,7 @@
 /*   By: aalshafy <aalshafy@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 12:14:04 by aalshafy          #+#    #+#             */
-/*   Updated: 2024/07/02 20:53:01 by aalshafy         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:18:19 by aalshafy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void				print_messege(int id, char *messege,
 void				*philo_routine(void *arg);
 int					dead_status_check(t_philosophers *philo);
 void				eating(t_philosophers *philo);
+void				mutux_lock_order(t_philosophers *philo);
 void				sleeping(t_philosophers *philo);
 void				thinking(t_philosophers *philo);
 void				destory_mutexes(t_data *data,

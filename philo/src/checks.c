@@ -6,7 +6,7 @@
 /*   By: aalshafy <aalshafy@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:02:23 by aalshafy          #+#    #+#             */
-/*   Updated: 2024/06/30 12:24:45 by aalshafy         ###   ########.fr       */
+/*   Updated: 2024/07/03 12:43:55 by aalshafy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	*check_status(void *arg)
 	philos = data->philos;
 	while (1)
 	{
+		usleep(1);
 		if (check_die(philos, data) || check_eat_time(philos, data))
 			break ;
 	}

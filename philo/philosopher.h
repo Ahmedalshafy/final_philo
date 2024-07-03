@@ -6,7 +6,7 @@
 /*   By: aalshafy <aalshafy@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 12:14:04 by aalshafy          #+#    #+#             */
-/*   Updated: 2024/06/30 14:17:04 by aalshafy         ###   ########.fr       */
+/*   Updated: 2024/07/02 20:53:01 by aalshafy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_data
 int					ft_atoi(char *str);
 size_t				ft_strlen(char *str);
 size_t				get_time(void);
-int					ft_usleep(size_t time);
+int					ft_usleep(size_t time, t_philosophers *philo);
 size_t				time_stamp(size_t start_time);
 int					check_args(char **argv);
 int					init_forks(int *forks, pthread_mutex_t *forks_mutexes,

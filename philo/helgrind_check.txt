@@ -1,0 +1,1 @@
+valgrind --tool=helgrind --log-file=helgrind-out.txt --read-var-info=yes --history-level=full --track-lockorders=yes --fair-sched=yes ./philo 4 400 200 200

@@ -6,7 +6,7 @@
 /*   By: aalshafy <aalshafy@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:02:23 by aalshafy          #+#    #+#             */
-/*   Updated: 2024/07/03 12:43:55 by aalshafy         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:58:19 by aalshafy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	check_die(t_philosophers *philos, t_data *data)
 	while (++i < data->philo_nbr)
 	{
 		pthread_mutex_lock(philos[i].meal_count_lock);
-		if (get_time() - philos[i].last_meal >= philos[i].time_to_die
+		if ((get_time() - philos[i].last_meal) > philos[i].time_to_die
 			&& !philos[i].is_eating)
 		{
 			print_messege(philos[i].id, "died", philos);

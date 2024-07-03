@@ -6,7 +6,7 @@
 /*   By: aalshafy <aalshafy@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 08:37:29 by aalshafy          #+#    #+#             */
-/*   Updated: 2024/07/03 12:45:01 by aalshafy         ###   ########.fr       */
+/*   Updated: 2024/07/03 15:05:31 by aalshafy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void	*philo_routine(void *arg)
 	t_philosophers	*philo;
 
 	philo = (t_philosophers *)arg;
+	if (philo->philo_nbr == 1)
+	{
+		print_messege(philo->id, "has taken a fork", philo);
+		ft_usleep(philo->time_to_die, philo);
+		return (NULL);
+	}
 	if (philo->id % 2 == 0)
 		ft_usleep(1, philo);
 	while (!dead_status_check(philo))
@@ -41,12 +47,6 @@ int	dead_status_check(t_philosophers *philo)
 /*eat function*/
 void	eating(t_philosophers *philo)
 {
-	if (philo->philo_nbr == 1)
-	{
-		print_messege(philo->id, "has taken a fork", philo);
-		ft_usleep(philo->time_to_die, philo);
-		return ;
-	}
 	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_lock(philo->right_fork_lock);
@@ -57,9 +57,6 @@ void	eating(t_philosophers *philo)
 		pthread_mutex_lock(philo->left_fork_lock);
 		pthread_mutex_lock(philo->right_fork_lock);
 	}
-	// pthread_mutex_lock(philo->right_fork_lock);
-	// 
-	// pthread_mutex_lock(philo->left_fork_lock);
 	pthread_mutex_lock(philo->meal_count_lock);
 	philo->last_meal = get_time();
 	philo->is_eating = 1;

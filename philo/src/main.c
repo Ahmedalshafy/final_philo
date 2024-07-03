@@ -6,7 +6,7 @@
 /*   By: aalshafy <aalshafy@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:29:07 by aalshafy          #+#    #+#             */
-/*   Updated: 2024/06/30 14:15:53 by aalshafy         ###   ########.fr       */
+/*   Updated: 2024/07/03 13:37:49 by aalshafy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ int	check_args(char **argv)
 	int	i;
 
 	i = 1;
-	while (argv[i])
+	if (ft_atoi(argv[i]) > MAX_PHILOS || ft_atoi(argv[i]) < 1)
+		return (0);
+	while (argv[++i])
 	{
 		if (ft_atoi(argv[i]) < 1)
 			return (0);
-		i++;
 	}
 	return (1);
 }

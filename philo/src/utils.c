@@ -6,7 +6,7 @@
 /*   By: aalshafy <aalshafy@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:39:42 by aalshafy          #+#    #+#             */
-/*   Updated: 2024/07/02 20:52:28 by aalshafy         ###   ########.fr       */
+/*   Updated: 2024/07/03 15:22:27 by aalshafy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ int	ft_usleep(size_t time, t_philosophers *philo)
 	size_t	start;
 
 	start = get_time();
-	while (get_time() - start < time)
+	while ((get_time() - start) < time)
 	{
 		if (dead_status_check(philo))
 			return (0);
-		usleep(500);
+		usleep(50);
 	}
 	return (0);
 }
